@@ -1,0 +1,42 @@
+{
+  "name": "backbone-history-events",
+  "title": "Backbone History Events",
+  "description": "Some extra events for the Backbone.History module",
+  "keywords": [
+    "backbone",
+    "history",
+    "events",
+    "Backbone.history.navigate",
+    "404"
+  ],
+  "main": "./backbone.historyEvents.min.js",
+  "author": {
+    "name": "Matt Bryson"
+  },
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mattbryson/backbone.historyEvents.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mattbryson/backbone.historyEvents/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://raw.githubusercontent.com/mattbryson/backbone.historyEvents/master/LICENCE"
+    }
+  ],
+  "homepage": "https://raw.githubusercontent.com/mattbryson/backbone.historyEvents/docs/index.html",
+  "readmeFilename": "README.md",
+  "devDependencies": {
+    "docdash": "^0.3.0",
+    "jsdoc": "^3.4.0",
+    "uglify-js": "^2.6.2"
+  },
+  "scripts": {
+    "docs": "jsdoc backbone.historyEvents.js -c docs/conf.json",
+    "minify": "uglifyjs backbone.historyEvents.js --output backbone.historyEvents.min.js --compress  --comments",
+    "build": "npm run docs && npm run minify"
+  }
+}
