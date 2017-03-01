@@ -59,10 +59,10 @@
    *  console.log('Page Not found ', fragment);
    * });
    *
-   * Backbone.history.navigate('/nonExistantRoute', {trigger:true});
-   * // Page Not found nonExistantRoute
+   * Backbone.history.navigate('/nonExistentRoute', {trigger:true});
+   * // Page Not found nonExistentRoute
    *
-   * Backbone.history.navigate('/nonExistantRoute');
+   * Backbone.history.navigate('/nonExistentRoute');
    * // Handler is not triggered as nothing tried to load a route (no trigger)
    */
   Backbone.History.prototype.loadUrl = _.wrap(Backbone.History.prototype.loadUrl, function(oldLoadUrl, fragment) {
