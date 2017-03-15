@@ -42,10 +42,12 @@
    *
    * Backbone.history.navigate('/myRoute', {trigger:true});
    * // Naivagted to  /myRoute . Triggered router: true  with options  Object {trigger: true}
+   * @return {boolean} If the route was triggered or not
    */
   Backbone.History.prototype.navigate = _.wrap(Backbone.History.prototype.navigate, function(oldNavigate, fragment, options) {
     var routeTriggered = oldNavigate.call(this, fragment, options);
     this.trigger('navigated', fragment,  options, routeTriggered);
+    return routeTriggered;
   });
 
 
@@ -59,11 +61,12 @@
    *  console.log('Page Not found ', fragment);
    * });
    *
-   * Backbone.history.navigate('/nonExistentRoute', {trigger:true});
-   * // Page Not found nonExistentRoute
+   * Backbone.history.navigate('/nonExistantRoute', {trigger:true});
+   * // Page Not found nonExistantRoute
    *
-   * Backbone.history.navigate('/nonExistentRoute');
+   * Backbone.history.navigate('/nonExistantRoute');
    * // Handler is not triggered as nothing tried to load a route (no trigger)
+   * @return {boolean} If the route was triggered or not
    */
   Backbone.History.prototype.loadUrl = _.wrap(Backbone.History.prototype.loadUrl, function(oldLoadUrl, fragment) {
     var routeTriggered = oldLoadUrl.call(this, fragment);
